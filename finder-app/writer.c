@@ -46,7 +46,7 @@ int main(int arg1, char *arg2[]) // arg1 = count, arg2 = strings
 		
 	if (openresult == EOF) { // returns EOF if error occurs
 		int saved_errno = errno; // eerno identifies the error, save it to saved_errno
-		syslog(LOG_ERR, "Cannot write to %s", arg2[1], strerror(saved_errno)); //strerror converts error into readable description
+		syslog(LOG_ERR, "Cannot write to %s: %s", arg2[1], strerror(saved_errno)); //strerror converts error into readable description
 		fprintf(stderr, "Cannot write to %s: %s\n", arg2[1], strerror(saved_errno));
 		status = 1;
 		}
